@@ -19,6 +19,7 @@ public class Application {
     public static void main(String[] args) {
 
         SpringApplication.run(Application.class, args);
+        System.out.println("Hello1");
 
 
     }
@@ -30,6 +31,10 @@ public class Application {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
+//                System.out.println("Hello2 : " + faker.commerce().productName());
+//                System.out.println("Hello3 : " + faker.commerce().material());
+//                System.out.println("Hello4 : " + faker.number().randomNumber());
+
                 final List<Product> products = createProductList();
                 productService.saveAll(products);
             }
@@ -48,7 +53,7 @@ public class Application {
                 return Product.builder()
                         .name(faker.commerce().productName())
                         .description(faker.commerce().material())
-                        .price(new BigDecimal(faker.commerce().price()))
+                        .price(new BigDecimal(faker.number().randomNumber()))    // faker.commerce().price() is replaced by faker.number().randomNumber()
                         .build();
             }
         };
