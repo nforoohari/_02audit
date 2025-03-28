@@ -4,11 +4,13 @@ package ir.digixo.dto;
 import ir.digixo.entity.Product;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
 //lombok annotations
 @Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 public class ProductResponse extends ProductDto {
 
