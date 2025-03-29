@@ -4,6 +4,7 @@ import com.github.javafaker.App;
 import com.github.javafaker.Faker;
 import com.zaxxer.hikari.util.ClockSource;
 import ir.digixo.entity.Product;
+import ir.digixo.exception.EntityNotFoundException;
 import ir.digixo.service.ProductService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,13 +20,13 @@ import java.util.List;
 @SpringBootApplication
 public class Application {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EntityNotFoundException {
 
-        System.out.println("Hello1");
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
-
+        System.out.println("Hello1");
         ProductService ps = ctx.getBean(ProductService.class);
         ps.getAll().forEach(System.out::println);
+        System.out.println(ps.getProduct(10L));
 //        SpringApplication.run(Application.class, args);
 
     }
@@ -48,7 +49,9 @@ public class Application {
             private List<Product> createProductList() {
                 final List<Product> products = new ArrayList<>();
                 for (int i = 0; i < 5; i++) {
-                    products.add(create());
+                    Product p = create();
+//                    p.setName("nima");
+                    products.add(p);
                 }
 
                 return products;

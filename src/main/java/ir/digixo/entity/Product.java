@@ -1,27 +1,21 @@
 package ir.digixo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.math.BigDecimal;
 import ir.digixo.audit.Auditable;
-import jakarta.persistence.*;
 import lombok.*;
 
-import org.hibernate.envers.Audited;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.math.BigDecimal;
-import java.util.Date;
-
-@Entity
+@ToString
 @Getter
 @Setter
 @RequiredArgsConstructor
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-
 @Builder
+@Entity
 public class Product extends Auditable<String> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,11 +26,4 @@ public class Product extends Auditable<String> {
     private String description;
     @NonNull
     private BigDecimal price;
-
-    //
-
-
-
-
-
 }

@@ -8,17 +8,18 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import java.util.Date;
 
 //lombok annotations
 @Getter
 @Setter
+
 //spring auditing annotations
 //annotation designates a class whose mapping information is applied to the
 //entities that inherit from it. A mapped superclass has no separate table defined
 //for it
 @MappedSuperclass
+
 //specifies the callback listener classes to be used for an entity or mapped
 //superclass
 @EntityListeners(AuditingEntityListener.class)
@@ -35,7 +36,7 @@ public class Auditable<T> {
     @CreatedDate
     @Column(name = "created_date", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDate;
+    private Date createdDate;
 
     @LastModifiedBy
     @Column(name = "last_modified_by")

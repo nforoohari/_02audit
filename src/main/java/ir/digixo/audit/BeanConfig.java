@@ -1,18 +1,14 @@
 package ir.digixo.audit;
 
-import com.github.javafaker.Faker;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-
 import java.util.Locale;
 import java.util.Optional;
+import com.github.javafaker.Faker;
 
-//spring annotation
 @Configuration
-//spring jpa audit annotation
-//annotation enables the auditing in jpa via annotation configuration
 @EnableJpaAuditing(auditorAwareRef = "aware")
 public class BeanConfig {
 

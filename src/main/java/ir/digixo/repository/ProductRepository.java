@@ -1,8 +1,7 @@
 package ir.digixo.repository;
 
-import ir.digixo.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import ir.digixo.entity.Product;
 
-public interface ProductRepository extends JpaRepository<Product,Long> {
-   // Optional<Product> findAuditByIdAndRevision(Long id, int revision);
+public interface ProductRepository extends JpaRepository<Product, Long> {
 }

@@ -1,13 +1,11 @@
 package ir.digixo.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NonNull;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 //lombok annotations
+@ToString
 @Getter
 @AllArgsConstructor
 @EqualsAndHashCode
@@ -19,5 +17,4 @@ public class ProductDto {
     String description;
     @NonNull
     BigDecimal price;
-
 }

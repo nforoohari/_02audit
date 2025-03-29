@@ -1,20 +1,18 @@
 package ir.digixo.dto;
 
-
+import java.math.BigDecimal;
 import ir.digixo.entity.Product;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.math.BigDecimal;
-
 //lombok annotations
-@Getter
 @ToString
+@Getter
 @EqualsAndHashCode(callSuper = true)
 public class ProductResponse extends ProductDto {
 
-    String creationDate;
+    String createdDate;
     String lastModifiedBy;
     String lastModifiedDate;
 
@@ -22,12 +20,12 @@ public class ProductResponse extends ProductDto {
             final String productName,
             final String description,
             final BigDecimal price,
-            final String creationDate,
+            final String createdDate,
             final String lastModifiedBy,
             final String lastModifiedDate) {
 
         super(productName, description, price);
-        this.creationDate = creationDate;
+        this.createdDate = createdDate;
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
     }
@@ -37,7 +35,7 @@ public class ProductResponse extends ProductDto {
                 product.getName(),
                 product.getDescription(),
                 product.getPrice(),
-                product.getCreationDate().toString(),
+                product.getCreatedDate().toString(),
                 product.getLastModifiedBy(),
                 product.getLastModifiedDate().toString());
     }
